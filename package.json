@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "$(npm bin)/eslint cypress/*/*.js;$(npm bin)/eslint models/*.js;$(npm bin)/eslint app.js;$(npm bin)/eslint spec/*/*.js;$(npm bin)/eslint routes/*.js;$(npm bin)/eslint controllers/*.js;"
+    "lint": "$(npm bin)/eslint cypress/*/*.js;$(npm bin)/eslint models/*.js;$(npm bin)/eslint app.js;$(npm bin)/eslint spec/*.js;$(npm bin)/eslint routes/*.js;$(npm bin)/eslint controllers/*.js;"
   },
   "repository": {
     "type": "git",
