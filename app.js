@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const user = require('./routes/user.route');
-
+const bit = require('./routes/bit.route');
 //initialize our express app
 const app = express();
 
@@ -16,6 +16,8 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use('/users', user);
+app.use('/bits', bit);
+app.use(express.static(__dirname + '/public'));
 
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({extended: false}));
@@ -25,4 +27,9 @@ let port = 1234;
 
 app.listen(port, () => {
   console.log('Server is up and running on port number ' + port);
+});
+
+app.get('/', (req, res) => {
+  console.log("hello world");
+  res.sendFile(__dirname + "/index.html");
 });
