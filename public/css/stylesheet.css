@@ -1,0 +1,35 @@
+body {
+  align: center;
+  background-color: AliceBlue;
+}
+
+.header h1 {
+  color: #0B3954;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #0B3954;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #90BEDE;
+  color: black;
+}
