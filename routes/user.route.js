@@ -1,5 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const router = express.Router();
+
 
 // Require the controllers
 const user_controller = require('../controllers/user.controller');
@@ -8,5 +10,5 @@ const user_controller = require('../controllers/user.controller');
 router.get('/test', user_controller.test);
 
 module.exports = router;
-
-router.post('/create', user_controller.user_create);
+const urlEncodedParser = bodyParser.urlencoded({extended: false});
+router.post('/create', urlEncodedParser, user_controller.user_create);
