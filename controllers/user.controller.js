@@ -29,3 +29,10 @@ exports.user_details = function (req, res) {
     res.send(user);
   })
 };
+
+exports.user_update = function (req, res) {
+  User.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, user) {
+    if (err) return next(err);
+    res.send('User updated.');
+  });
+};
