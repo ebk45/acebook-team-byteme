@@ -22,3 +22,10 @@ exports.user_create = function (req, res) {
     res.send('User created successfully')
   })
 };
+
+exports.user_details = function (req, res) {
+  User.findById(req.params.id, function (err, user) {
+    if (err) return next(err);
+    res.send(user);
+  })
+};

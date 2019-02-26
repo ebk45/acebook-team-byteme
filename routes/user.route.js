@@ -12,3 +12,4 @@ router.get('/test', user_controller.test);
 module.exports = router;
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
 router.post('/create', urlEncodedParser, user_controller.user_create);
+router.get('/:id', user_controller.user_details);
