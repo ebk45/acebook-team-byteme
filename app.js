@@ -32,3 +32,8 @@ app.get('/', (req, res) => {
   console.log("hello world");
   res.sendFile(__dirname + "/index.html");
 });
+
+app.get('/', (req, res) => {
+  console.log("hello world");
+  res.sendFile(__dirname + "/index.html");
+});
