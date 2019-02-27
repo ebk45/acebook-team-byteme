@@ -8,7 +8,7 @@ let UserSchema = new Schema({
   email: {type: String, required: true, max: 100}
 });
 
-console.log(UserSchema)
+
 
 //export the model
 module.exports = mongoose.model('User', UserSchema);
