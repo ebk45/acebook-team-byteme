@@ -43,8 +43,6 @@ exports.bit_delete = function (req, res, next) {
 };
 
 exports.bit_all = function(req, res, next) {
-  res.send('Greetings from the bit all controller!');
-  console.log(123)
   Bit.find({}, function(err, allBits) {
     res.send(allBits);
   })
