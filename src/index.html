@@ -2,31 +2,59 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-    <link type="text/javascript" href="/src/feed.js">
     <meta charset="utf-8">
     <title>ByteBook</title>
-    <div class="header">
-    <h1>ByteBook</h1>
-    </div>
   </head>
   <body>
-    <div class="navbar" id="home-navbar">
-      <a href="#">Home</a>
-      <a href="#">My Profile</a>
-      <a href="#" class="right">Signup/Login</a>
-    </div>
-    <div id="create_bit">
+    <div class="header"><h1>ByteBook</h1></div>
+
+    <div class="content">
+
+    <nav>
+        <a href="#" class="center">ByteBook</a>
+        <a href="#">Home</a>
+        <a href="#" class="right">Signup/Login</a>
+        <a href="#"class="right">My Profile</a>
+    </nav>
+
+    <div class="create_bit">
       <form action="bits/create" method="post">
-        <input type="text" name="post" placeholder="Tell me a BIT about your day">
+        <input id="" type="text" name="post" placeholder="Tell me a BIT about your day">
         <input type="submit" value="Byte me!">
       </form>
     </div>
-    <div id="bits">
-      <% @bits.each do |bit| %>
-      <blockquote class="bit" id="bit-<% bit.id %>">
-        <a><%= bit.post %></a></blockquote>
-        <% end %>
-    </div>
-    <h1>bits</h1>
+
+    <div class="display_bits"></div>
+
+    <script type="text/javascript">
+    const bitsList = document.querySelector('.display_bits');
+
+    const displayBits = () => {
+      const bits = [{
+        _id: '5c75610b172b9a84fa0a176d',
+        post: "i've had a good day",
+        __v: 0
+      },
+      {
+        _id: '5c756123172b9a84fa0a176e',
+        post: "Hi will",
+        __v: 0,
+      }];
+      bitsList.innerHTML = bits.map((bit, index) => {
+        return `
+              <div class="container"><div class="card" id="bit-${index}">
+                <p>${bit.post}</p>
+              </div></div>`;
+      })
+     .join('');
+    };
+    displayBits();
+    </script>
+
+  </div>
+
+  <div class="footer">Footer</div>
+
   </body>
+
 </html>
