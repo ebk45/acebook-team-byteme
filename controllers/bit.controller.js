@@ -17,7 +17,7 @@ exports.bit_create = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.send('Bit created successfully')
+    res.redirect('/')
   })
 };
 

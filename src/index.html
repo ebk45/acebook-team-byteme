@@ -8,8 +8,6 @@
   <body>
     <div class="header"><h1>ByteBook</h1></div>
 
-    <div class="content">
-
     <nav>
         <a href="#" class="center">ByteBook</a>
         <a href="#">Home</a>
@@ -24,37 +22,9 @@
       </form>
     </div>
 
-    <div class="display_bits"></div>
+    <div id="bitsDisplay" class="display_bits"></div>
 
-    <script type="text/javascript">
-    const bitsList = document.querySelector('.display_bits');
-
-    const displayBits = () => {
-      const bits = [{
-        _id: '5c75610b172b9a84fa0a176d',
-        post: "i've had a good day",
-        __v: 0
-      },
-      {
-        _id: '5c756123172b9a84fa0a176e',
-        post: "Hi will",
-        __v: 0,
-      }];
-      bitsList.innerHTML = bits.map((bit, index) => {
-        return `
-              <div class="container"><div class="card" id="bit-${index}">
-                <p>${bit.post}</p>
-              </div></div>`;
-      })
-     .join('');
-    };
-    displayBits();
-    </script>
-
-  </div>
-
-  <div class="footer">Footer</div>
-
+    <script type="text/javascript" src="/js/render.js"></script>
+    <script type="text/javascript">displayBits();</script>
   </body>
-
 </html>
