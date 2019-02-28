@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "$(npm bin)/cypress open",
+    "lint": "$(npm bin)/eslint cypress/*/*.js;$(npm bin)/eslint models/*.js;$(npm bin)/eslint app.js;$(npm bin)/eslint spec/*/*.js;$(npm bin)/eslint routes/*.js;$(npm bin)/eslint controllers/*.js;",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +20,14 @@
   "homepage": "https://github.com/ellieturno/acebook-team-byteme#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.15"
+    "mongoose": "^5.4.15",
+    "nodemon": "^1.18.10"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jasmine": "^3.3.1",
+    "cypress": "^3.1.5",
+    "eslint": "^5.14.1"
+  }
 }
