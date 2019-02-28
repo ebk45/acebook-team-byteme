@@ -29,11 +29,5 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-  console.log("hello world");
-  res.sendFile(__dirname + "/index.html");
-});
-
-app.get('/', (req, res) => {
-  console.log("hello world");
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/src/index.html");
 });
