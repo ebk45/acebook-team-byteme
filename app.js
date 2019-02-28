@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const user = require("./routes/user.route");
-const bit = require('./routes/bit.route');
+const bit = require("./routes/bit.route");
 //initialize our express app
 const app = express();
 
@@ -19,8 +19,14 @@ app.use('/users', user);
 app.use('/bits', bit);
 app.use(express.static(__dirname + '/public'));
 
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({extended: false}));
+// configure xpress to use body-parser as a middleware
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+// testing express router
+// app.post('/create', function(req,res){
+//
+// });
 
 let port = 1234;
 

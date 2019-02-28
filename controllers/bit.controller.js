@@ -1,12 +1,12 @@
 const Bit = require('../models/bit.model')
 
+console.log("bitcontroller execute")
 
 exports.test = function (req, res) {
   res.send('Greetings from the test controller!');
 };
 
 exports.bit_create = function (req, res, next) {
-
   let bit = new Bit(
     {
       post: req.body.post,
@@ -39,5 +39,11 @@ exports.bit_delete = function (req, res, next) {
   Bit.findByIdAndRemove(req.params.id, function (err) {
     if (err) return next(err);
     res.send('Deleted successfully!');
+  })
+};
+
+exports.bit_all = function(req, res, next) {
+  Bit.find({}, function(err, allBits) {
+    res.send(allBits);
   })
 };
