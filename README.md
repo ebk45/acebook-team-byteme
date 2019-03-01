@@ -1,6 +1,9 @@
 # acebook-team-byteme
 
+Acebook is a Facebook clone that is developed by a remarkable agile team in 2-week time. The features are built based on user stories listed in the following section.
+
 ### User Stories
+
 ```
 As a user,
 As a user, So i can share whats going on in my life,
@@ -22,7 +25,7 @@ So i want the post to show the time.
 
 |Layer|Technology|
 |:----|:----|
-|Front-end|Langauge: Javascript<br>Testing:Cypress|
+|Front-end|Langauge: Javascript<br>Testing: Cypress|
 |Back-end|Langauge: Node.js<br>Framework: Express<br>Testing: Jasmine|
 |Database|NoSQL with MongoDB|
 
