@@ -1,6 +1,7 @@
 # acebook-team-byteme
 
 
+### User Stories
 ``` As a user,
     As a user, So i can share whats going on in my life,
     I want to be able to create a post on acebook.```
@@ -13,4 +14,7 @@
    I want to be able to see when a post was created,
    So i want the post to show the time```
 
-   testing to see the environment file
+
+## Instructions
+
+Type in the terminal `npm install` after cloning or pulling the repo to ensure that your local machine has the correct npm packages to run the app.
