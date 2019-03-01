@@ -1,7 +1,7 @@
 const bitsList = document.querySelector(".display_bits");
 
 const getBits = function() {
-  let fetchURL = "http://localhost:1234/bits";
+  let fetchURL = "http://localhost:1234/bits" || process.env.GETBITS;
   // insert way of selecting dev or production
   return fetch(fetchURL)
     .then(blob => blob.json())
