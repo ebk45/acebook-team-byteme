@@ -1,11 +1,9 @@
 const bitsList = document.querySelector(".display_bits");
 
 const getBits = function() {
-  return (
-    fetch("http://localhost:1234/bits")
-      .then(blob => blob.json())
-      .then(data => displayBits(data))
-  );
+  return fetch("http://localhost:1234/bits")
+    .then(blob => blob.json())
+    .then(data => displayBits(data));
 };
 
 const displayBits = data => {
@@ -14,6 +12,7 @@ const displayBits = data => {
       return `
           <div class="container"><div class="card" id="bit-${index}">
             <p>${bit.post}</p>
+            <p>${bit.createdAt}</p>
           </div></div>`;
     })
     .join("");
