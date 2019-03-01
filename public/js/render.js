@@ -1,11 +1,9 @@
 const bitsList = document.querySelector(".display_bits");
 
 const getBits = function() {
-  return (
-    fetch("http://localhost:1234/bits")
-      .then(blob => blob.json())
-      .then(data => displayBits(data))
-  );
+  return fetch("https://bytebytebook.herokuapp.com/bits")
+    .then(blob => blob.json())
+    .then(data => displayBits(data));
 };
 
 const displayBits = data => {
