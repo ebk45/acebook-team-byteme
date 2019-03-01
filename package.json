@@ -6,7 +6,8 @@
   "scripts": {
     "test": "$(npm bin)/cypress open",
     "lint": "$(npm bin)/eslint cypress/*/*.js;$(npm bin)/eslint models/*.js;$(npm bin)/eslint app.js;$(npm bin)/eslint spec/*/*.js;$(npm bin)/eslint routes/*.js;$(npm bin)/eslint controllers/*.js;",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start": "npm run start"
   },
   "repository": {
     "type": "git",
