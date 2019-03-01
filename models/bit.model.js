@@ -1,9 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const timestamps = require("mongoose-timestamp");
 const Schema = mongoose.Schema;
 
 let BitSchema = new Schema({
-  post: {type: String, required: true, max: 250},
+  post: { type: String, required: true, max: 250 }
 });
 
+BitSchema.plugin(timestamps);
+
 //export the model
-module.exports = mongoose.model('Bit', BitSchema);
+module.exports = mongoose.model("Bit", BitSchema);
