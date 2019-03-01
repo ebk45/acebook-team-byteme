@@ -2,7 +2,7 @@
   "name": "acebook-team-byteme",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "$(npm bin)/cypress open",
     "lint": "$(npm bin)/eslint cypress/*/*.js;$(npm bin)/eslint models/*.js;$(npm bin)/eslint app.js;$(npm bin)/eslint spec/*/*.js;$(npm bin)/eslint routes/*.js;$(npm bin)/eslint controllers/*.js;",
@@ -14,6 +14,9 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "11.9.0"
+  },
   "bugs": {
     "url": "https://github.com/ellieturno/acebook-team-byteme/issues"
   },
