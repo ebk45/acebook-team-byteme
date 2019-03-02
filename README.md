@@ -1,6 +1,6 @@
 # acebook-team-byteme
 
-Acebook is a Facebook clone that is developed by a remarkable agile team in 2-week time. The features are built based on user stories listed in the following section.
+Acebook is a Facebook clone that is developed by a remarkable agile team in 2-week time. The features are built based on user stories listed in the following section. Read our [diary](./acebook_team_diary.md) to see our development journey and what we have learnt each day!
 
 ### User Stories
 
