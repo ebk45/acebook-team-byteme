@@ -1,33 +1,23 @@
 body {
-  align: center;
-  background-color: #E5FFFC;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.content {
-  align-self: center;
+  background-color: #FFFFFF;
 }
 
 .header h1 {
   text-align: center;
   margin-top: 50px;
-  color: #0F5257;
-  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-  font-size: 50px;
+  color: #505050;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 40px;
 }
 
 nav {
   overflow: hidden;
-  background-color: #59C3C3;
+  background-color: #A9A9A9;
   position: fixed;
   top: 0;
   width: 100%;
-  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
 }
 
 nav a {
@@ -39,8 +29,8 @@ nav a {
   text-decoration: none;
 }
 
-nav a.center {
-  float: center;
+nav a.left {
+  float: left;
 }
 
 nav a.right {
@@ -52,40 +42,33 @@ nav a:hover {
 }
 
 .create_bit {
-  float: center;
+  font-family: 'Press Start 2P', monospace;
 }
 
-.display_bits {
-  float: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
 }
 
 .card {
-  display: inline-block;
-  background-color: White;
-  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  border:2px solid black;
+  padding:6px 6px 6px 6px;
+  box-shadow:2px 2px 0px darkGrey, inset 2px 2px 0px #fff;
+  margin-top: 10px;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #060606;
   font-size: 12px;
-  font-weight: bold;
-  line-height: 16px;
-  border-color: LightGray;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
-  margin: 0 auto;
-  padding: 15px;
-  max-width: 600px;
-  height: 70px;
-  float: center;
 }
 
-.card p {
+.card p  {
   font-weight: bold;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0,2);
-}
-
-.container {
-  padding: 2px 16px;
+  color: #4AD6D6;
 }
