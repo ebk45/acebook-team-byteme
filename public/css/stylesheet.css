@@ -13,6 +13,9 @@ body {
 nav {
   overflow: hidden;
   background-color: #A9A9A9;
+  background: linear-gradient(to bottom, black, black 50%, white 50%, white);
+  background-size: 100% 2px;
+  text-align: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -56,7 +59,7 @@ nav a:hover {
 .card {
   border:2px solid black;
   padding:6px 6px 6px 6px;
-  box-shadow:2px 2px 0px darkGrey, inset 2px 2px 0px #fff;
+  box-shadow:3px 3px 0px darkGrey, inset 2px 2px 0px #fff;
   margin-top: 10px;
   font-family: 'Press Start 2P', monospace;
   text-transform: uppercase;
@@ -65,10 +68,17 @@ nav a:hover {
   font-size: 12px;
 }
 
-.card p  {
+.card #bit_post  {
   font-weight: bold;
 }
 
-.card:hover {
+.card #bit_post:hover {
   color: #4AD6D6;
+}
+
+.card #timestamp {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  font-size: 8px;
 }

@@ -12,7 +12,6 @@ const displayBits = data => {
   bitsList.innerHTML = data
     .map((bit, index) => {
       date = new Date(bit.createdAt).toUTCString();
-      console.log(date);
       displayDate = date
         .split(" ")
         .slice(0, 5)
