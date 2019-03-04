@@ -21,6 +21,16 @@ As a user,
 I want to be able to see when a post was created,
 So i want the post to show the time.
 ```
+
+``` As a user,
+I want to be able to able to have a personal account,
+So i want to be able to register with my details ```
+
+``` As a user,
+I want to be able see posts I and my friends have made,
+So i want to be able to sign in to my account with my details
+```
+
 ## Teachnical Approach
 
 |Layer|Technology|
