@@ -24,6 +24,16 @@ exports.user_create = function (req, res, next) {
   })
 };
 
+exports.user_login = function (req, res, next) {
+  User.findOne({ email: req.body.email }, function(err, user) {
+      if (err) throw err;
+
+      // test a matching password
+      user.comparePassword(req.body.password, function(err, isMatch) {
+          if (err) throw err;
+          console.log(req.body.password, isMatch); // return true or false
+      });
+}
 // exports.user_details = function (req, res, next) {
 //   User.findById(req.params.id, function (err, user) {
 //     if (err) return next(err);
