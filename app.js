@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const user = require("./routes/user.route");
 const bit = require("./routes/bit.route");
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session);
 //initialize our express app
 const app = express();
 
@@ -23,10 +25,14 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// testing express router
-// app.post('/create', function(req,res){
-//
-// });
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+  mongooseConnection: db
+  })
+}));
 
 let port = process.env.PORT || 1234;
 

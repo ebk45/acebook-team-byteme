@@ -32,7 +32,11 @@ exports.user_login = function (req, res, next) {
       user.comparePassword(req.body.password, function(err, isMatch) {
           if (err) throw err;
           console.log(req.body.password, isMatch); // return true or false
+
+            // req.session.userId = user._id;
+            // console.log(user._id)
           res.send("You have logged in")
+
       });
     });
 };
@@ -56,3 +60,7 @@ exports.user_login = function (req, res, next) {
 //     res.send('Deleted successfully!');
 //   })
 // };
+//
+//
+// how to query the database with mogoose to return the json package & object ID of a user to password
+// into the setsession = ("name", "object") and create a session
