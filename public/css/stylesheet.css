@@ -48,6 +48,10 @@ nav a:hover {
   font-family: 'Press Start 2P', monospace;
 }
 
+.text_box {
+  font-family: 'Press Start 2P', monospace;
+}
+
 .container {
   display: flex;
   flex-direction: column;

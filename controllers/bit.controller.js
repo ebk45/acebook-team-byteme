@@ -1,7 +1,5 @@
 const Bit = require("../models/bit.model");
 
-console.log("bitcontroller execute");
-
 exports.test = function(req, res) {
   res.send("Greetings from the test controller!");
 };

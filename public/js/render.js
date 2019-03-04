@@ -15,7 +15,8 @@ const displayBits = data => {
       displayDate = date
         .split(" ")
         .slice(0, 5)
-        .join(" ");
+        .join(" ")
+        .substr(0,22);
 
       return `
           <div class="card" id="bit-${index}">
