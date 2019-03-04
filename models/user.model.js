@@ -12,10 +12,6 @@ let UserSchema = new Schema({
     max: 100,
     unique: true
   },
-  // age: {
-  //   type: Number,
-  //   required: true
-  // },
   email: {
     type: String,
     required: true,
