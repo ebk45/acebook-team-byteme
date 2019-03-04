@@ -10,7 +10,6 @@ let UserSchema = new Schema({
     type: String,
     required: true,
     max: 100,
-    unique: true
   },
   email: {
     type: String,
