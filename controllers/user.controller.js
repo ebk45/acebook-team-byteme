@@ -6,13 +6,12 @@ exports.test = function (req, res) {
 };
 
 exports.user_create = function (req, res, next) {
-  res.send('Greetings from the user_create controller!');
-  console.log("create user!!!!!!!!!!!");
+
   let user = new User(
     {
       name: req.body.name,
-      age: req.body.age,
-      email: req.body.email
+      email: req.body.email,
+      password: req.body.password
     }
   );
 
@@ -20,8 +19,8 @@ exports.user_create = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    // res.send('User created successfully')
-    res.redirect("/");
+    res.send('User created successfully')
+    // res.redirect("/");
   })
 };
 
