@@ -32,8 +32,10 @@ exports.user_login = function (req, res, next) {
       user.comparePassword(req.body.password, function(err, isMatch) {
           if (err) throw err;
           console.log(req.body.password, isMatch); // return true or false
+          res.send("You have logged in")
       });
-}
+    });
+};
 // exports.user_details = function (req, res, next) {
 //   User.findById(req.params.id, function (err, user) {
 //     if (err) return next(err);
