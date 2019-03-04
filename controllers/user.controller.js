@@ -20,7 +20,6 @@ exports.user_create = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    // res.send('User created successfully')
     res.redirect("/");
   })
 };
