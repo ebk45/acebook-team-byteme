@@ -27,13 +27,16 @@ exports.user_create = function (req, res, next) {
 exports.user_login = function (req, res, next) {
   User.findOne({ email: req.body.email }, function(err, user) {
       if (err) throw err;
+      if (!user) {
+      res.send({ message: 'Authentication failed. User not found.' });
+    } else if (user) {
 
-      // test a matching password
       user.comparePassword(req.body.password, function(err, isMatch) {
           if (err) throw err;
           console.log(req.body.password, isMatch);
           res.send("you are log-in"); // return true or false
       });
+      console.log(user._id);}
     });
 };
 // exports.user_details = function (req, res, next) {
