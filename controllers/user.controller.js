@@ -46,7 +46,7 @@ exports.user_login = function (req, res, next) {
             admin: user.admin
           };
 
-            var token = jwt.sign(payload, config.secret, { expiresIn : 60*60*24});
+            var token = jwt.sign(payload, config.secret, { expiresIn : '24h'}); // expires in 1 day
             res.json({
               success: true,
               message: 'Enjoy your token!',
