@@ -10,6 +10,7 @@ const urlEncodedParser = bodyParser.urlencoded({extended: false});
 router.post('/create', urlEncodedParser, user_controller.user_create);
 router.post('/login',urlEncodedParser,user_controller.user_login);
 
+
 module.exports = router;
 
 // router.get('/:id', user_controller.user_details);

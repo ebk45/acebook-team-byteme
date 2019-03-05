@@ -24,11 +24,7 @@ app.use(express.static(__dirname + "/public"));
 // configure xpress to use body-parser and cors as a middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-// testing express router
-// app.post('/create', function(req,res){
-//
-// });
+app.use(cors());
 
 let port = process.env.PORT || 1234;
 

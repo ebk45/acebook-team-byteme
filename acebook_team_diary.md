@@ -96,3 +96,44 @@ Deployment to Heroku, solving the connection to MongoDB.
 Standups format.<br>
 Deploy database-backed web app on Heroku.<br>
 Use of timestamp to include `createdAt` and `updatedAt` information
+
+### Day6
+
+BE:
+Implemented salting and hashing on user's password with bcrypt
+Ensure that user e-mail is unique
+User can log-in and authenticate.
+
+to use bcrypt:
+
+`
+npm install bcrypt
+`
+
+to  make unique document:
+`
+mongoose-unique-validator
+`
+
+Resources:
+- [password authentication](https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1)
+
+Reading about session and how to implement, choices are:
+- [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage),
+- [Jason Web Token (JWT)](https://techbrij.com/token-authentication-nodejs-express-mongo-passport),
+- [express-session](https://github.com/Createdd/Writing/blob/master/2017/articles/AuthenticationIntro.md),
+- passport
+
+### Day 7
+
+BE: Authentication and generate session/token. The team has devided to go for JWT after researching as it follows the industry standard.<br>
+
+Json Web Tokens (JWT) : open, industry standard RFC 7519 method for representing claims securely between two parties. Got to [here](https://jwt.io/) for details.<br>
+
+Good explanation of JWT [here](https://medium.com/dev-bits/a-guide-for-adding-jwt-token-based-authentication-to-your-single-page-nodejs-applications-c403f7cf04f4) and diagram [here](https://medium.com/@siddharthac6/json-web-token-jwt-the-right-way-of-implementing-with-node-js-65b8915d550e)<br>
+
+Implement token following this [instructions](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens) and [Github repo](https://gist.github.com/umidjons/857013a6c8fbd1c99ada)<br>
+
+FE: seperate app.js into front-end and back-end. <br>
+BE serves as an api to REACT, and implement cors to allow FE having ascces to the BE API.
+Relevant article [here?](https://medium.freecodecamp.org/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c)
