@@ -19,9 +19,10 @@ app.use("/users", user);
 app.use("/bits", bit);
 app.use(express.static(__dirname + "/public"));
 
-// configure xpress to use body-parser as a middleware
+// configure xpress to use body-parser and cors as a middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 let port = process.env.PORT || 1234;
 
