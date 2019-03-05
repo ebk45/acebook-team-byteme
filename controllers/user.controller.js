@@ -1,5 +1,9 @@
 const User = require('../models/user.model')
-console.log("execute user controller");
+const jwt = require("jsonwebtoken");
+const config = require("../config");
+// const session = {
+//   'secret': 'supersecret'
+// };
 
 exports.test = function (req, res) {
   res.send('Greetings from the test controller!');
@@ -26,19 +30,33 @@ exports.user_create = function (req, res, next) {
 
 exports.user_login = function (req, res, next) {
   User.findOne({ email: req.body.email }, function(err, user) {
-      if (err) throw err;
-      if (!user) {
+    if (err) throw err;
+    if (!user) {
       res.send({ message: 'Authentication failed. User not found.' });
     } else if (user) {
 
       user.comparePassword(req.body.password, function(err, isMatch) {
-          if (err) throw err;
-          console.log(req.body.password, isMatch);
-          res.send("you are log-in"); // return true or false
-      });
-      console.log(user._id);}
+        if (err) throw err;
+        if (isMatch === false) {
+          res.send({ message: 'Wrong password.' });
+        } else {
+          // res.send("you are log-in");
+          // console.log(user._id);
+          const payload = {
+            admin: user.admin
+          };
+
+            var token = jwt.sign(payload, config.secret, { expiresIn : 60*60*24});
+            res.json({
+              success: true,
+              message: 'Enjoy your token!',
+              token: token
+            });
+          }
+        });
+      }
     });
-};
+  };
 // exports.user_details = function (req, res, next) {
 //   User.findById(req.params.id, function (err, user) {
 //     if (err) return next(err);

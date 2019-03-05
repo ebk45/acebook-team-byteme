@@ -1,8 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
-const config = require("./config");
 const user = require("./routes/user.route");
 const bit = require("./routes/bit.route");
 //initialize our express app
@@ -16,7 +14,6 @@ mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
-app.set('superSecret', config.secret); // secret variable
 
 app.use("/users", user);
 app.use("/bits", bit);
