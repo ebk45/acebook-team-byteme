@@ -18,6 +18,9 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json( { extended: true }));
+
 app.use(cookieParser());
 app.use(
   session({
@@ -34,8 +37,8 @@ app.use("/bits", bit);
 app.use(express.static(__dirname + "/public"));
 
 // configure xpress to use body-parser and cors as a middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json( { extended: true }));
 app.use(cors());
 
 let port = process.env.PORT || 1234;

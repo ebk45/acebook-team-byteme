@@ -7,7 +7,10 @@ let BitSchema = new Schema({
     type: String,
     required: true,
     max: 250 },
-  userId: {type: String, required: true, max: 100 }
+  userId: {type: String, required: true, max: 100 },
+  likes: { type: Number, min: 0, required: true, default: 0 },
+  whoLiked: [],
+  whoDisliked: []
 
 });
 

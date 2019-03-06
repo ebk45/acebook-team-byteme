@@ -1,6 +1,7 @@
 const Bit = require("../models/bit.model");
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
+var ObjectID = require("mongoDB").ObjectID
 
 console.log("bitcontroller execute");
 
@@ -22,6 +23,29 @@ exports.bit_create = function(req, res, next) {
   });
 };
 
+  exports.bit_like = function (req, res, next) {
+    // Assume when button clicked it sends post id that button is aligned to.
+    let postID = req.body.postID
+
+    Bit.findById(new ObjectID(postID), function(err, post, next){
+      if (err) {
+        return next(err);
+      }
+      else {
+        if (post.whoLiked.includes(req.session._id)){
+          res.end()
+        }
+        else {
+          let userPreviouslyDisliked = post.whoDisliked.findIndex(req.session._id);
+          post.whoDisliked.splice(userPreviouslyDisliked, 1) //removes one element out of the disliked array
+          post.whoLiked.push(req.session._id)
+          post.likes ++
+          post.save()
+          res.end()
+        }
+      }
+    });
+  };
 // exports.bit_details = function(req, res, next) {
 //   Bit.findById(req.params.id, function(err, bit) {
 //     if (err) return next(err);
