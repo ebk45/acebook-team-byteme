@@ -5,7 +5,6 @@ const config = require("../config");
 //   'secret': 'supersecret'
 // };
 
-var session;
 
 exports.test = function (req, res) {
   res.send('Greetings from the test controller!');
@@ -43,7 +42,6 @@ exports.user_login = function (req, res, next) {
           res.send({ message: 'Wrong password.' });
         } else {
           req.session.email = req.body.email;
-          session = req.session.email
           console.log(session)
 
           const payload = {

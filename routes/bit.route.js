@@ -12,7 +12,7 @@ router.get('/', bit_controller.bit_all);
 
 
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
-// router.post('/', urlEncodedParser, bit_controller.bit_like);
+// router.post('/addlike', urlEncodedParser, bit_controller.bit_like);
 router.post('/create', urlEncodedParser, bit_controller.bit_create);
 // router.post('/delete', bit_controller.bit_delete);
 // router.post('/addcomment', bit_controller.bit_comment);
