@@ -41,8 +41,8 @@ exports.user_login = function (req, res, next) {
         if (isMatch === false) {
           res.send({ message: 'Wrong password.' });
         } else {
-          req.session.email = req.body.email;
-          console.log(session)
+          req.session._id = user._id;
+          console.log(req.session._id)
 
           const payload = {
             admin: user.admin

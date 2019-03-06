@@ -1,4 +1,6 @@
 const Bit = require("../models/bit.model");
+const session = require('express-session');
+const cookieParser = require('cookie-parser')
 
 console.log("bitcontroller execute");
 
@@ -8,7 +10,8 @@ exports.test = function(req, res) {
 
 exports.bit_create = function(req, res, next) {
   let bit = new Bit({
-    post: req.body.post
+    post: req.body.post,
+    userId: req.session._id
   });
 
   bit.save(function(err) {
