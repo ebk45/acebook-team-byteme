@@ -8,6 +8,7 @@ const user_controller = require('../controllers/user.controller');
 router.get('/test', user_controller.test);
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
 router.post('/create', urlEncodedParser, user_controller.user_create);
+router.post('/login',urlEncodedParser,user_controller.user_login);
 
 
 module.exports = router;

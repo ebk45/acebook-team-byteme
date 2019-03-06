@@ -1,18 +1,21 @@
 const User = require('../models/user.model')
-console.log("execute user controller");
+const jwt = require("jsonwebtoken");
+const config = require("../config");
+// const session = {
+//   'secret': 'supersecret'
+// };
 
 exports.test = function (req, res) {
   res.send('Greetings from the test controller!');
 };
 
 exports.user_create = function (req, res, next) {
-  res.send('Greetings from the user_create controller!');
-  console.log("create user!!!!!!!!!!!");
+
   let user = new User(
     {
       name: req.body.name,
-      age: req.body.age,
-      email: req.body.email
+      email: req.body.email,
+      password: req.body.password
     }
   );
 
@@ -20,11 +23,40 @@ exports.user_create = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    // res.send('User created successfully')
-    res.redirect("/");
+    res.send('User created successfully')
+    // res.redirect("/");
   })
 };
 
+exports.user_login = function (req, res, next) {
+  User.findOne({ email: req.body.email }, function(err, user) {
+    if (err) throw err;
+    if (!user) {
+      res.send({ message: 'Authentication failed. User not found.' });
+    } else if (user) {
+
+      user.comparePassword(req.body.password, function(err, isMatch) {
+        if (err) throw err;
+        if (isMatch === false) {
+          res.send({ message: 'Wrong password.' });
+        } else {
+          // res.send("you are log-in");
+          // console.log(user._id);
+          const payload = {
+            admin: user.admin
+          };
+
+            var token = jwt.sign(payload, config.secret, { expiresIn : '24h'}); // expires in 1 day
+            res.json({
+              success: true,
+              message: 'Enjoy your token!',
+              token: token
+            });
+          }
+        });
+      }
+    });
+  };
 // exports.user_details = function (req, res, next) {
 //   User.findById(req.params.id, function (err, user) {
 //     if (err) return next(err);
