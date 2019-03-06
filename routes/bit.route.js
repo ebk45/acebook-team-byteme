@@ -12,10 +12,10 @@ router.get('/', bit_controller.bit_all);
 
 
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
-router.post('/', urlEncodedParser, bit_controller.bit_like);
+// router.post('/', urlEncodedParser, bit_controller.bit_like);
 router.post('/create', urlEncodedParser, bit_controller.bit_create);
-router.post('/delete', bit_controller.bit_delete);
-router.post('/addcomment', bit_controller.bit_comment);
+// router.post('/delete', bit_controller.bit_delete);
+// router.post('/addcomment', bit_controller.bit_comment);
 // router.get('/:id', bit_controller.bit_details);
 // router.put('/:id/update', urlEncodedParser, bit_controller.bit_update);
 

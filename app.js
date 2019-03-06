@@ -1,4 +1,6 @@
 require("dotenv").config();
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -15,6 +17,16 @@ mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "Bytebook",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  })
+);
 
 app.use(cors());
 app.use("/users", user);
