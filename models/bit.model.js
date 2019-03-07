@@ -11,10 +11,9 @@ let BitSchema = new Schema({
   likes: { type: Number, min: 0, required: true, default: 0 },
   whoLiked: [],
   whoDisliked: []
-
 });
 
-BitSchema.plugin(timestamps);
+Bit.plugin(timestamps);
 
 //export the model
-module.exports = mongoose.model("Bit", BitSchema);
+module.exports = mongoose.model("Bit", Bit);
