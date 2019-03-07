@@ -13,7 +13,7 @@ let BitSchema = new Schema({
   whoDisliked: []
 });
 
-Bit.plugin(timestamps);
+BitSchema.plugin(timestamps);
 
 //export the model
-module.exports = mongoose.model("Bit", Bit);
+module.exports = mongoose.model("Bit", BitSchema);
