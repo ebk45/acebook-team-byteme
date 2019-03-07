@@ -36,16 +36,24 @@ exports.bit_create = function(req, res, next) {
           res.end()
         }
         else {
-          let userPreviouslyDisliked = post.whoDisliked.findIndex(req.session._id);
-          post.whoDisliked.splice(userPreviouslyDisliked, 1) //removes one element out of the disliked array
+
+
           post.whoLiked.push(req.session._id)
           post.likes ++
           post.save()
+          if (post.whoDisliked.includes(req.session._id)) {
+          function isUserId (userId){
+            userId === req.session._id
+          }
+          let userPreviouslyDisliked = post.whoDisliked.findIndex(isUserId); //removes one element out of the disliked array
+          post.whoDisliked.splice(userPreviouslyDisliked, 1)
+        }
           res.end()
         }
       }
     });
   };
+// will implement once we have a profile user page.
 // exports.bit_details = function(req, res, next) {
 //   Bit.findById(req.params.id, function(err, bit) {
 //     if (err) return next(err);
