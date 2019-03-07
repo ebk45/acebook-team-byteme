@@ -34,9 +34,7 @@ exports.bit_create = function(req, res, next) {
       else {
         if (post.whoLiked.includes(req.session._id)){
           res.end()
-        }
-        else {
-
+        } else {
 
           post.whoLiked.push(req.session._id)
           post.likes ++
@@ -63,14 +61,14 @@ exports.bit_create = function(req, res, next) {
     else {
       if (post.whoDisliked.includes(req.session._id)) {
         res.end()
-      }
-      else {
+      } else {
 
         post.whoDisliked.push(req.session._id)
         post.likes --
+        post.save()
         if (post.whoLiked.includes(req.session._id)) {
           function isUserId (userID){
-            userId === req.session._id
+            userID === req.session._id
           }
           let userPreviouslyliked = post.whoLiked.findIndex(isUserId);
           post.whoLiked.splice(userPreviouslyliked, 1)
