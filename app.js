@@ -1,4 +1,7 @@
 require("dotenv").config();
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
 const user = require("./routes/user.route");
@@ -15,18 +18,23 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json( { extended: true }));
+
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "Bytebook",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  })
+);
+
+app.use(cors());
 app.use("/users", user);
 app.use("/bits", bit);
 app.use(express.static(__dirname + "/public"));
-
-// configure xpress to use body-parser as a middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// testing express router
-// app.post('/create', function(req,res){
-//
-// });
 
 let port = process.env.PORT || 1234;
 
@@ -35,5 +43,7 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
+  console.log(req.session);
   res.sendFile(__dirname + "/src/index.html");
+
 });
