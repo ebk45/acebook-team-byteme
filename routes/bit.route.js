@@ -11,10 +11,10 @@ router.get('/test', bit_controller.test);
 router.get('/', bit_controller.bit_all);
 
 
-const urlEncodedParser = bodyParser.urlencoded({extended: false});
+//const urlEncodedParser = bodyParser.urlencoded({extended: false});
 const jsonParser = bodyParser.json({extended: true});
 router.post('/addlike', jsonParser, bit_controller.bit_like);
-router.post('/create', urlEncodedParser, bit_controller.bit_create);
+router.post('/create', jsonParser, bit_controller.bit_create);
 // route.post('/addsdislike', urlEncodedParser, bit_controller.bit_dislike);
 // router.post('/delete', bit_controller.bit_delete);
 // router.post('/addcomment', bit_controller.bit_comment);
