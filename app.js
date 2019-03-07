@@ -23,7 +23,7 @@ app.use(express.static(__dirname + "/public"));
 
 // configure xpress to use body-parser and cors as a middleware
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ extended: true }));
 app.use(cors());
 
 let port = process.env.PORT || 1234;
@@ -33,5 +33,5 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/src/index.html");
+  //res.sendFile(__dirname + "/src/index.html");
 });
