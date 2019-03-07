@@ -6,9 +6,9 @@ const user_controller = require('../controllers/user.controller');
 
 //a simple test url to check that all of our files are communicating correctly
 router.get('/test', user_controller.test);
-const urlEncodedParser = bodyParser.urlencoded({extended: false});
-router.post('/create', urlEncodedParser, user_controller.user_create);
-router.post('/login',urlEncodedParser,user_controller.user_login);
+const jsonParser = bodyParser.json({extended: true});
+router.post('/create', jsonParser, user_controller.user_create);
+router.post('/login', jsonParser, user_controller.user_login);
 
 
 module.exports = router;

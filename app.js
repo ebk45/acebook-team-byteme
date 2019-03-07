@@ -18,6 +18,7 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json( { extended: true }));
 
@@ -31,7 +32,6 @@ app.use(
   })
 );
 
-app.use(cors());
 app.use("/users", user);
 app.use("/bits", bit);
 app.use(express.static(__dirname + "/public"));
@@ -42,8 +42,17 @@ app.listen(port, () => {
   console.log("Server is up and running on port number " + port);
 });
 
-app.get("/", (req, res) => {
-  console.log(req.session);
-  res.sendFile(__dirname + "/src/index.html");
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
+app.get("/", (req, res, next) => {
+  // Handle the get for this route
+});
+
+app.post('/', function(req, res, next) {
+ // Handle the post for this route
 });
