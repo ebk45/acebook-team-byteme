@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "$(npm bin)/eslint models/*.js;$(npm bin)/eslint app.js;$(npm bin)/eslint spec/*/*.js;$(npm bin)/eslint routes/*.js;$(npm bin)/eslint controllers/*.js;",
     "dev": "nodemon app.js",
-    "start": "npm run start"
+    "start": "npm run start",
+    "test-init": "./node_modules/jasmine/bin/jasmine.js init",
+    "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "repository": {
     "type": "git",
@@ -33,7 +35,8 @@
     "mongoose": "^5.4.15",
     "mongoose-timestamp": "^0.6.0",
     "mongoose-unique-validator": "^2.0.2",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "cors": "^2.8.5",
