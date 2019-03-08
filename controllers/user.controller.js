@@ -33,13 +33,16 @@ exports.user_login = function (req, res, next) {
   User.findOne({ email: req.body.email }, function(err, user) {
     if (err) throw err;
     if (!user) {
-      res.send({ message: 'Authentication failed. User not found.' });
+      res.status(401).send(`Incorrect Credentials`)
+      //({ message: 'Authentication failed. User not found.' });
     } else if (user) {
 
       user.comparePassword(req.body.password, function(err, isMatch) {
         if (err) throw err;
         if (isMatch === false) {
-          res.send({ message: 'Wrong password.' });
+          res.status(401).send(`Incorrect Credentials`)
+
+          //res.send({ message: 'Wrong password.' });
         } else {
           req.session._id = user._id;
           console.log(req.session._id)
