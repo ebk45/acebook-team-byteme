@@ -36,9 +36,7 @@ exports.bit_create = function(req, res, next) {
       else {
         if (post.whoLiked.includes(req.session._id)){
           res.end()
-        }
-        else {
-
+        } else {
 
           post.whoLiked.push(req.session._id)
           post.likes ++
@@ -55,6 +53,33 @@ exports.bit_create = function(req, res, next) {
       }
     });
   };
+  exports.bit_dislike = function(req,res,next) {
+    let postID = req.body.postID
+
+  Bit.findById(new ObjectID(postID), function(err, post,next) {
+    if(err) {
+      return next(err);
+    }
+    else {
+      if (post.whoDisliked.includes(req.session._id)) {
+        res.end()
+      } else {
+
+        post.whoDisliked.push(req.session._id)
+        post.likes --
+        post.save()
+        if (post.whoLiked.includes(req.session._id)) {
+          function isUserId (userID){
+            userID === req.session._id
+          }
+          let userPreviouslyliked = post.whoLiked.findIndex(isUserId);
+          post.whoLiked.splice(userPreviouslyliked, 1)
+          }
+        res.end()
+      }
+    }
+  });
+};
 // will implement once we have a profile user page.
 // exports.bit_details = function(req, res, next) {
 //   Bit.findById(req.params.id, function(err, bit) {
