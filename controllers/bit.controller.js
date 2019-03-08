@@ -20,6 +20,8 @@ exports.bit_create = function(req, res, next) {
       return next(err);
     }
     res.redirect("/");
+  //  res.send('bit created')
+  //  res.status(200).json({'todo': 'todo added successfully'});
   });
 };
 

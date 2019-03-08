@@ -43,7 +43,5 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  console.log(req.session);
-  res.sendFile(__dirname + "/src/index.html");
-
+  //Handle the get route
 });
