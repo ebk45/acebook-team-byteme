@@ -36,11 +36,21 @@ describe("server",() => {
         done();
       });
     });
-    it("Status 200", () => {
+    it("can get bits from database", () => {
       expect(data.status).toBe(200);
     });
     // it("Body", () => {
     //   expect(data.body).toContain(Bit.bit_all);
     // });
+  });
+
+  describe("POST /user/login",() => {
+    it("user can log in", () => {
+      // mock the request body byt creating an empty object
+      // var body = new Object();
+      Request.post("http://localhost:1234/users/create", (err, res, body) => {
+        expect(res.status).toBe(200);
+      })
+    });
   });
 });
