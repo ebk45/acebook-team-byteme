@@ -29,7 +29,7 @@ Stack decision: Cypress for FE, and Jasmine for BE (future possibility to test R
 
 Git sanitation and work environment:
 Each time when work on a branch again, always rebase, to ensure that I include the most up-to-date from dev branch.
-`git pull --rebase origin/dev`
+`git pull origin dev`
 
 set up jasmine and cypress frameworks
 Include lint
@@ -126,7 +126,7 @@ Reading about session and how to implement, choices are:
 
 ### Day 7
 
-BE: Authentication and generate session/token. The team has devided to go for JWT after researching as it follows the industry standard.<br>
+BE: Authentication and generate session/token. The team has divided to go for JWT after researching as it follows the industry standard.<br>
 
 Json Web Tokens (JWT) : open, industry standard RFC 7519 method for representing claims securely between two parties. Got to [here](https://jwt.io/) for details.<br>
 
@@ -137,3 +137,33 @@ Implement token following this [instructions](https://scotch.io/tutorials/authen
 FE: seperate app.js into front-end and back-end. <br>
 BE serves as an api to REACT, and implement cors to allow FE having ascces to the BE API.
 Relevant article [here?](https://medium.freecodecamp.org/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c)
+
+### Day 8
+
+BE:
+- Work on the `LIKES` and `DISLIKES` functionality.
+- Look into testing frameworks.
+
+
+FE:
+- Connected with the back-end API.
+
+### Day 9
+
+BE:
+- Added the `LIKES` and `DISLIKES` functionality.
+- Look into testing frameworks.
+- Bridge the backend api with front end.
+
+FE: Styling
+
+Learning:
+Discussion about security and how to keep our user information safe.
+
+### Day 10
+
+FE: Further styling
+
+BE: specific status error
+
+Work on presentation
