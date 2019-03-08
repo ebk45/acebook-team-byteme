@@ -43,5 +43,7 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  //Handle the get route
+  res.send('Hello world')
 });
+
+module.exports = port;
