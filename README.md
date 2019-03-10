@@ -24,7 +24,8 @@ So i want the post to show the time.
 
 ``` As a user,
 I want to be able to able to have a personal account,
-So i want to be able to register with my details ```
+So i want to be able to register with my details 
+```
 
 ``` As a user,
 I want to be able see posts I and my friends have made,
@@ -35,7 +36,7 @@ So i want to be able to sign in to my account with my details
 
 |Layer|Technology|
 |:----|:----|
-|Front-end|Langauge: Javascript<br>Testing: Cypress|
+|Front-end|REACT|
 |Back-end|Langauge: Node.js<br>Framework: Express<br>Testing: Jasmine|
 |Database|NoSQL with MongoDB|
 
